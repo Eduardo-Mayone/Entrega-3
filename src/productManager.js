@@ -102,5 +102,4 @@ export default class ProductManager {
             throw (error);
         }
     }
-
 }

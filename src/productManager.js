@@ -9,7 +9,7 @@ export default class ProductManager {
         
     }
 
-    getProducts = async() => {
+    async getProducts() {
 
         const data = await fs.promises.readFile(this.path, 'utf-8');
         const productos = JSON.parse(data);
@@ -18,7 +18,7 @@ export default class ProductManager {
         return productos
     }
 
-    generarId = async() => {
+    async generarId() {
         let index = 0;
         const productos = await this.getProducts();
         
@@ -31,7 +31,7 @@ export default class ProductManager {
     }
     
     
-    addProduct = async(producto) => {
+    async addProduct(producto) {
         const productos = await this.getProducts();
         console.log("🚀 ~ ProductManager ~ addProduct=async ~ productos:", productos)
         
@@ -49,7 +49,7 @@ export default class ProductManager {
     }
 
     
-    getProductById = async(id) => {
+    async getProductById(id) {
         const productos = await this.getProducts();
         const producto_buscado = productos.find ((producto) => producto.id === id);
         if (!producto_buscado) {
@@ -62,7 +62,7 @@ export default class ProductManager {
         }
     }
 
-    updateProduct = async(producto_a_actualizar) => {
+    async updateProduct(producto_a_actualizar) {
 
         const producto_buscado = await this.getProductById(producto_a_actualizar.id);
         if (producto_buscado) {
@@ -80,7 +80,7 @@ export default class ProductManager {
         }
     }
 
-    deleteProduct = async(id) => {
+    async deleteProduct(id) {
         const nuevo_array = [];
         const producto_buscado = await this.getProductById(id);
         if (producto_buscado) {

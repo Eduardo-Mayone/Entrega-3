@@ -14,7 +14,7 @@ app.get("/products/:pid", async(req, res)=> {
         console.log("este es el producto por id", producto_por_id)
     } catch(e){
         console.log(e)
-        res.send(error)
+        res.send(error_id)
     }        
 })
 
